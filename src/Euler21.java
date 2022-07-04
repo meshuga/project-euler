@@ -1,19 +1,18 @@
 public class Euler21 {
 
     public static boolean isAmicableNumber(int a) {
-        int sumOfDivisorsA = 0;
-        int sumOfDivisorsD = 0;
-        for(int i=1; i<=a/2; i++){
-            if(a%i == 0) {
-                sumOfDivisorsA += i;
+        int sumOfDivisors = getSumOfDivisors(a);
+        return a == getSumOfDivisors(sumOfDivisors);
+    }
+
+    public static int getSumOfDivisors(int number) {
+        int sumOfDivisors = 0;
+        for(int i = 1; i<= number /2; i++){
+            if(number %i == 0) {
+                sumOfDivisors += i;
             }
         }
-        for(int i=1; i<=sumOfDivisorsA/2; i++){
-            if(sumOfDivisorsA%i == 0) {
-                sumOfDivisorsD += i;
-            }
-        }
-        return a == sumOfDivisorsD;
+        return sumOfDivisors;
     }
 
     public static void main(String... args) {
